@@ -18,15 +18,12 @@
             background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
             color: #E0E0E0;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
 
         .container {
-            max-width: 480px;
-            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             text-align: center;
         }
 
@@ -63,7 +60,7 @@
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 16px;
             padding: 24px;
-            margin-bottom: 24px;
+            margin-bottom: 48px;
             backdrop-filter: blur(10px);
         }
 
@@ -72,11 +69,20 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .featured h2 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 12px;
             color: #FFFFFF;
         }
@@ -104,10 +110,77 @@
             box-shadow: 0 6px 24px rgba(0, 212, 255, 0.4);
         }
 
+        /* History Section */
+        .history-section {
+            margin: 48px 0;
+            text-align: left;
+        }
+
+        .history-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .history-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .history-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #00D4FF;
+            transform: translateY(-4px);
+        }
+
+        .history-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .history-item-content {
+            padding: 16px;
+        }
+
+        .history-item h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+
+        .history-item p {
+            font-size: 13px;
+            color: #909090;
+            line-height: 1.4;
+        }
+
+        .history-item-date {
+            font-size: 11px;
+            color: #606060;
+            margin-top: 8px;
+        }
+
+        /* Social Links */
         .links {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            margin-top: 48px;
         }
 
         .link-item {
@@ -137,6 +210,7 @@
             margin-top: 32px;
             font-size: 12px;
             color: #606060;
+            text-align: center;
         }
 
         .footer a {
@@ -154,6 +228,10 @@
                 height: 100px;
                 font-size: 40px;
             }
+
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -163,13 +241,24 @@
         <h1>TheNiftyKit</h1>
         <p class="tagline">Your daily dose of tech that works</p>
 
+        <!-- Today's Pick -->
         <div class="featured">
             <div class="featured-label">🔥 Today's Top Pick</div>
+            <img id="product-image" class="product-image" src="" alt="Product image">
             <h2 id="product-title">Loading amazing gadget...</h2>
             <p id="product-desc">Discovering the best tech for you...</p>
             <a href="#" id="product-link" class="btn">Check It Out →</a>
         </div>
 
+        <!-- Previous Picks History -->
+        <div class="history-section">
+            <h3>📦 Previous Picks</h3>
+            <div class="history-grid" id="history-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Social Links -->
         <div class="links">
             <a href="https://instagram.com/theniftykit" class="link-item">
                 <span>📸 Instagram</span>
@@ -196,17 +285,67 @@
     </div>
 
     <script>
-        // Product data - update this daily via script
-        const todaysPick = {
-            title: "MX Master 3S Wireless Mouse",
-            description: "Ultra-precise scrolling, customizable buttons, and works on any surface. The mouse that made me ditch my old one forever.",
-            link: "https://amzn.to/YOUR_AFFILIATE_LINK"
-        };
+        // Product database - latest first
+        const products = [
+            {
+                title: "MX Master 3S Wireless Mouse",
+                description: "Ultra-precise scrolling, customizable buttons, and works on any surface. The mouse that made me ditch my old one forever.",
+                image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800&q=80",
+                link: "https://amzn.to/YOUR_AFFILIATE_LINK",
+                date: "2026-02-01"
+            },
+            {
+                title: "Anker USB-C Hub 7-in-1",
+                description: "Turn one port into seven. HDMI, USB 3.0, SD card reader - the MacBook dongle that actually delivers.",
+                image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=800&q=80",
+                link: "https://amzn.to/YOUR_AFFILIATE_LINK",
+                date: "2026-01-31"
+            },
+            {
+                title: "Elgato Stream Deck Mini",
+                description: "6 programmable keys for shortcuts, macros, and workflows. Not just for streamers - productivity beast.",
+                image: "https://images.unsplash.com/photo-1593642532400-2682810df593?w=800&q=80",
+                link: "https://amzn.to/YOUR_AFFILIATE_LINK",
+                date: "2026-01-30"
+            },
+            {
+                title: "Philips Hue Smart Bulbs",
+                description: "16 million colors, voice control, automation. Your lighting will never be the same.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+                link: "https://amzn.to/YOUR_AFFILIATE_LINK",
+                date: "2026-01-29"
+            }
+        ];
 
-        // Update page
+        // Load today's pick (first in array)
+        const todaysPick = products[0];
         document.getElementById('product-title').textContent = todaysPick.title;
         document.getElementById('product-desc').textContent = todaysPick.description;
         document.getElementById('product-link').href = todaysPick.link;
+        document.getElementById('product-image').src = todaysPick.image;
+        document.getElementById('product-image').alt = todaysPick.title;
+
+        // Load history (skip first item - that's today's pick)
+        const historyGrid = document.getElementById('history-grid');
+        products.slice(1).forEach(product => {
+            const item = document.createElement('a');
+            item.className = 'history-item';
+            item.href = product.link;
+            item.innerHTML = `
+                <img src="${product.image}" alt="${product.title}">
+                <div class="history-item-content">
+                    <h4>${product.title}</h4>
+                    <p>${product.description.substring(0, 80)}...</p>
+                    <div class="history-item-date">${formatDate(product.date)}</div>
+                </div>
+            `;
+            historyGrid.appendChild(item);
+        });
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
 
         // Track clicks
         document.querySelectorAll('a').forEach(link => {
