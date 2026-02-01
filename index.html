@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheNiftyKit - Your Daily Tech Curator</title>
+    <meta name="description" content="Discover the best tech gadgets, smart home devices, and productivity tools. Daily curated picks with honest reviews.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
+            color: #E0E0E0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #00D4FF, #6B2DD9);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #00D4FF, #39FF14);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: #A0A0A0;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .featured {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .featured-label {
+            color: #39FF14;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .featured h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        .featured p {
+            color: #B0B0B0;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00D4FF, #6B2DD9);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.4);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #00D4FF;
+            transform: translateX(4px);
+        }
+
+        .link-icon {
+            font-size: 20px;
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #606060;
+        }
+
+        .footer a {
+            color: #00D4FF;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">⚡</div>
+        <h1>TheNiftyKit</h1>
+        <p class="tagline">Your daily dose of tech that works</p>
+
+        <div class="featured">
+            <div class="featured-label">🔥 Today's Top Pick</div>
+            <h2 id="product-title">Loading amazing gadget...</h2>
+            <p id="product-desc">Discovering the best tech for you...</p>
+            <a href="#" id="product-link" class="btn">Check It Out →</a>
+        </div>
+
+        <div class="links">
+            <a href="https://instagram.com/theniftykit" class="link-item">
+                <span>📸 Instagram</span>
+                <span class="link-icon">→</span>
+            </a>
+            <a href="https://tiktok.com/@theniftykit" class="link-item">
+                <span>🎵 TikTok</span>
+                <span class="link-icon">→</span>
+            </a>
+            <a href="https://youtube.com/@theniftykit" class="link-item">
+                <span>▶️ YouTube</span>
+                <span class="link-icon">→</span>
+            </a>
+            <a href="https://twitter.com/theniftykit" class="link-item">
+                <span>🐦 Twitter</span>
+                <span class="link-icon">→</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Affiliate links support free content 💙</p>
+            <p><a href="mailto:contact@theniftykit.com">Contact</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Product data - update this daily via script
+        const todaysPick = {
+            title: "MX Master 3S Wireless Mouse",
+            description: "Ultra-precise scrolling, customizable buttons, and works on any surface. The mouse that made me ditch my old one forever.",
+            link: "https://amzn.to/YOUR_AFFILIATE_LINK"
+        };
+
+        // Update page
+        document.getElementById('product-title').textContent = todaysPick.title;
+        document.getElementById('product-desc').textContent = todaysPick.description;
+        document.getElementById('product-link').href = todaysPick.link;
+
+        // Track clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Add analytics tracking here (Google Analytics, Plausible, etc.)
+                console.log('Link clicked:', this.href);
+            });
+        });
+    </script>
+</body>
+</html>
